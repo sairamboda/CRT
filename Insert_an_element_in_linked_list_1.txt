@@ -1,0 +1,16 @@
+inser a new node
+1.start
+2.if root.data==null
+	ROOT=DATA=X
+	return
+3.if root.data>x
+	if root.left==null
+		root.left=node(x)
+	else
+		root.left.insert(x)
+  else
+	IF ROOT.RIGHT==NULL
+		root.right=node(x)
+	else
+		root.right=insert(x)
+4.end
