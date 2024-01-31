@@ -1,0 +1,58 @@
+#insert a node in bst
+class node:
+    def __init__(self,x):
+        self.data=x
+        self.left=None
+        self.right=None
+    def insert(self,x):
+        if self.data==None:
+            self.data=x
+            return
+        if self.data>x:
+            if self.left==None:
+                self.left=node(x)
+            else:
+                self.left.insert(x)
+        else:
+            if self.right is None:
+                self.right=node(x)
+            else:
+                self.right.insert(x)
+    def show(self):
+        if self.left:
+            self.left.show()
+        print(self.data,end=" ")
+        if self.right:
+            self.right.show()
+    def search(self,x):
+        if self.data==x:
+            print("element found")
+            return
+        if self.data>x:
+            if self.left:
+                self.left.search(x)
+            else:
+                print("node is not found")
+        else:
+            if self.right:
+                self.right.search(x)
+            else:
+                print("node is not found")
+r=node(40)
+while True:
+    print()
+    print("1.insert\n2.show\n3.search\n4.exit")
+    ch=int(input("enter choice:"))
+    if ch==1:
+        x=int(input("enter"))
+        r.insert(x)
+    elif ch==2:
+        r.show()
+    elif ch==3:
+        y=int(input("enter a element to search"))
+        r.search(y)
+    elif ch==4:
+        break
+    else:
+        print("enter a valid choice")
+        
