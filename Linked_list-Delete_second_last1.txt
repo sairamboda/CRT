@@ -1,0 +1,101 @@
+Linked list - Delete second last 1
+
+Write a Program to delete the second last element from the list. If deletion of second last element is not possible, print "Deletion of second last element is not possible", Otherwise print the list after deleting the second last element.
+
+Input Format
+
+Read elements upto -1
+
+Constraints
+
+1<=n<=10^7
+
+Output Format
+
+print output
+
+Sample Input 0
+
+1
+2
+3
+4
+-1
+Sample Output 0
+
+Before deleting:
+1 2 3 4
+After deleting:
+1 2 4
+Sample Input 1
+
+23
+34
+55
+12
+66
+45
+33
+-1
+Sample Output 1
+
+Before deleting:
+23 34 55 12 66 45 33
+After deleting:
+23 34 55 12 66 33
+
+
+code:
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class List:
+    def __init__(self):
+        self.head=None
+        self.tail=None
+    def create(self,x):
+        n = Node(x)
+        if self.head == None:
+            self.head = self.tail = n
+        else:
+            self.tail.next = n
+            self.tail = n
+    def show(self):
+        temp = self.head
+        while temp != None:
+            print(temp.data,end = ' ')
+            temp = temp.next
+        print()
+    def DeleteSecondLast(self):
+        temp1 = self.head
+        temp2 = self.head
+        c = 0
+        d = 0
+        while temp1 != None:
+            c += 1
+            temp1 = temp1.next 
+        while d != c - 3 and c >= 3 :
+            temp2 = temp2.next
+            d += 1
+        if c == 2:
+            self.head = self.head.next
+        else:
+            temp2.next = temp2.next.next
+    
+L = List()
+count = 0
+while True:
+    i = int(input())
+    if i == -1:
+        break
+    L.create(i)
+    count += 1
+if(count >= 2):
+    print('Before deleting:')
+    L.show()
+    L.DeleteSecondLast()
+    print('After deleting:')
+    L.show()
+else:
+    print('Deletion of second last element is not possible')

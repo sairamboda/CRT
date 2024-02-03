@@ -1,0 +1,122 @@
+Delete Duplicates 5
+
+Write a Program to delete the duplicate elements from the given list.
+
+Input Format
+
+Read elements upto -1
+
+Constraints
+
+1<=n<=10^7
+
+Output Format
+
+print output
+
+Sample Input 0
+
+1
+2
+3
+4
+3
+2
+-1
+Sample Output 0
+
+Linked list before removal of duplicates
+1
+2
+3
+4
+3
+2
+Linked list after removal of duplicates
+1
+2
+3
+4
+Sample Input 1
+
+1
+1
+2
+2
+3
+3
+-1
+Sample Output 1
+
+Linked list before removal of duplicates
+1
+1
+2
+2
+3
+3
+Linked list after removal of duplicates
+1
+2
+3
+
+code:
+
+class node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class sl:
+    def __init__(self):
+        self.head=None
+        self.tail=None
+    def create(self,data):
+        n=node(data)
+        t=self.head
+        if self.head==None:
+            self.head=self.tail=n
+            return
+        while t!=None:
+            if t.data==n.data:
+                return
+            t=t.next
+            
+            
+        else:
+            self.tail.next=n
+            self.tail=n
+    def create1(self,data):
+        n=node(data)
+        t=self.head
+        if self.head==None:
+            self.head=self.tail=n
+            return   
+        else:
+            self.tail.next=n
+            self.tail=n       
+    def show(self):
+        t=self.head
+        print("Linked list after removal of duplicates")
+        while t!=None:
+            print(t.data)
+            t=t.next
+    def show1(self):
+        t=self.head
+        print("Linked list before removal of duplicates")
+        while t!=None:
+            print(t.data)
+            t=t.next        
+s=sl()
+r=sl()
+while True:
+    k=int(input())
+    if k>0:
+        s.create(k)
+        r.create1(k)
+        
+    else:
+        r.show1()
+        s.show()
+        break
+        
+        

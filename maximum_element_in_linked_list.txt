@@ -1,0 +1,81 @@
+Linked list - find maximum element in linked list 1
+
+Write a Program to find the maximum number in a list.
+
+Input Format
+
+Read elements upto -1
+
+Constraints
+
+1<=n<=10^7
+
+Output Format
+
+print output
+
+Sample Input 0
+
+1
+5
+2
+4
+7
+3
+-1
+Sample Output 0
+
+7
+Sample Input 1
+
+6
+3
+8
+2
+9
+1
+6
+10
+-1
+Sample Output 1
+
+10
+
+
+code:
+class node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class sl:
+    def __init__(self):
+        self.head=None
+        self.tail=None
+    def create(self,data):
+        n=node(data)
+        if self.head==None:
+            self.head=self.tail=n
+        else:
+            self.tail.next=n
+            self.tail=n
+    def show(self):
+        t=self.head
+        while t!=None:
+            print(t.data)
+            t=t.next
+    def find(self):
+        c=[]
+        t=self.head
+        while t.next!=None:
+            c.append(t.data)
+            t=t.next
+        c.append(t.data)    
+        print(max(c))    
+s=sl()
+while True:
+    k=int(input())
+    if k>0:
+        s.create(k)
+    else:
+        s.find()
+        break
